@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "vn.vtt.demo"
+    },
+    "jhipsterVersion": "6.6.0",
+    "applicationType": "monolith",
+    "baseName": "DemoJWTSecurity",
+    "packageName": "vn.vtt.demo",
+    "packageFolder": "vn/vtt/demo",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "oracle",
+    "prodDatabaseType": "oracle",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MDdmNWJkMzFmZjM3MjczYzU5ZDk1MDY0NWMxNjRjNjY4MDMxNzRlZjUzZTMzOThkY2ZlYjAwMzQxMmQyOTZkM2JiN2YzYzc2YWY2YTNhNTcyNzM5NmZiODViMzExNTVhOWE4MjMzNzY2YTUwYTkyY2E2MDY0MTdlNDM3M2JmNTU=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1578466123398,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true
+  }
+}
