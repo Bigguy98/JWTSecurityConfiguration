@@ -6,6 +6,7 @@ import vn.vtt.demo.repository.UserRepository;
 import vn.vtt.demo.security.SecurityUtils;
 import vn.vtt.demo.service.MailService;
 import vn.vtt.demo.service.UserService;
+import vn.vtt.demo.service.dto.AdmUserDTO;
 import vn.vtt.demo.service.dto.PasswordChangeDTO;
 import vn.vtt.demo.service.dto.UserDTO;
 import vn.vtt.demo.web.rest.errors.*;
@@ -100,10 +101,17 @@ public class AccountResource {
      * @return the current user.
      * @throws RuntimeException {@code 500 (Internal Server Error)} if the user couldn't be returned.
      */
+//    @GetMapping("/account")
+//    public UserDTO getAccount() {
+//        return userService.getUserWithAuthorities()
+//            .map(UserDTO::new)
+//            .orElseThrow(() -> new AccountResourceException("User could not be found"));
+//    }
+
     @GetMapping("/account")
-    public UserDTO getAccount() {
-        return userService.getUserWithAuthorities()
-            .map(UserDTO::new)
+    public AdmUserDTO getAccount() {
+        return userService.getAdmUserWithAuthorities()
+            .map(AdmUserDTO::new)
             .orElseThrow(() -> new AccountResourceException("User could not be found"));
     }
 

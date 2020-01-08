@@ -1,8 +1,11 @@
 package vn.vtt.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import vn.vtt.demo.config.Constants;
+import vn.vtt.demo.domain.AdmUser;
 import vn.vtt.demo.domain.Authority;
 import vn.vtt.demo.domain.User;
+import vn.vtt.demo.repository.AdmUserRepository;
 import vn.vtt.demo.repository.AuthorityRepository;
 import vn.vtt.demo.repository.UserRepository;
 import vn.vtt.demo.security.AuthoritiesConstants;
@@ -42,6 +45,8 @@ public class UserService {
     private final AuthorityRepository authorityRepository;
 
     private final CacheManager cacheManager;
+
+    @Autowired private AdmUserRepository admUserRepository;
 
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, CacheManager cacheManager) {
         this.userRepository = userRepository;
@@ -272,6 +277,10 @@ public class UserService {
         return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesByLogin);
     }
 
+    @Transactional(readOnly = true)
+    public Optional<AdmUser> getAdmUserWithAuthorities() {
+        return SecurityUtils.getCurrentUserLogin().flatMap(admUserRepository::getByUsername);
+    }
     /**
      * Not activated users should be automatically deleted after 3 days.
      * <p>
